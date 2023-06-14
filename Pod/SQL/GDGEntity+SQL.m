@@ -28,7 +28,7 @@
 + (void)autoFillProperties:(NSArray <NSString *> *)propertyNames
 {
 	void (^getHandler)(GDGEntity *, NSString *) = ^(GDGEntity *entity, NSString *propertyName) {
-		if ([entity.id compare:@0] == NSOrderedDescending && ![entity.filledProperties containsObject:propertyName] && ![entity.changedProperties containsObject:propertyName])
+		if (![entity.filledProperties containsObject:propertyName] && ![entity.changedProperties containsObject:propertyName])
 		{
 			[entity fillProperties:@[propertyName]];
 			[entity.filledProperties addObject:propertyName];
